@@ -52,13 +52,12 @@ namespace DataTabler
                     itemValue = Expression.Coalesce(itemProp, dbNull);
                 }
 
-                //If nullable: row["propertyName"] = item.propertyName;
-                //else: row["propertyName"] = item.propertyName ?? DBNull.Value;
+                //If not nullable: row["propertyName"] = item.propertyName;
+                //If nullable: row["propertyName"] = item.propertyName ?? DBNull.Value;
                 var rowPropAssignment = Expression.Assign(rowProp, itemValue);
                 expressions.Add(rowPropAssignment);
             }
-
-
+            
             //Find method DataRowCollection.Add(DataRow)
             var tableRowAddMethod = typeof(DataRowCollection).GetMethod("Add", new[] {typeof(DataRow)});
             var tableRow = Expression.Property(table, "Rows");
