@@ -109,6 +109,11 @@ namespace DataTabler
             return loop;
         }
 
+        /// <summary>
+        /// Create a function which converts an IEnumerable to a DataTable.
+        /// </summary>
+        /// <typeparam name="T">type of each element in the enumerable</typeparam>
+        /// <returns>compiled conversion function</returns>
         public static Func<IEnumerable<T>, DataTable> GenerateDataTableConverter<T>()
         {
             PropertyDescriptorCollection properties = TypeDescriptor.GetProperties(typeof(T));
