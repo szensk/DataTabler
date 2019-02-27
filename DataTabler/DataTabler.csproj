@@ -2,6 +2,14 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>szensk</Authors>
+    <Company>szensk</Company>
+    <Description>Convert generic enumerable to a DataTable.</Description>
+    <RepositoryUrl>https://github.com/szensk/DataTabler</RepositoryUrl>
+    <PackageLicenseUrl></PackageLicenseUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageProjectUrl>https://github.com/szensk/DataTabler</PackageProjectUrl>
   </PropertyGroup>
 
 </Project>
