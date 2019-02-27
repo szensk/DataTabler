@@ -1,4 +1,6 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using DataTabler.Test.DataTypes;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -78,6 +80,22 @@ namespace DataTabler.Test
         public void DerivedColumnTest()
         {
             var items = new[]
+            {
+                new DerivedDataTest {BaseFee = 5, DerivedFee = 10},
+                new DerivedDataTest {BaseFee = 7, DerivedFee = 8}
+            };
+
+            var expected = items.ConvertToDataTable();
+            var actual = sut.ToDataTable(items);
+
+            actual.AssertColumns(expected);
+            actual.AssertRows(expected);
+        }
+
+        [TestMethod]
+        public void BaseColumnTest()
+        {
+            IEnumerable<BaseDataTest> items = new[]
             {
                 new DerivedDataTest {BaseFee = 5, DerivedFee = 10},
                 new DerivedDataTest {BaseFee = 7, DerivedFee = 8}
